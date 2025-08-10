@@ -3,16 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Web Creator</title>
+    <title>WASSER PRO</title>
     <link href="main.css" rel="stylesheet">
   </head>
-  <script>
-    new EventSource('/esbuild').addEventListener('change', () =>
-      location.reload()
-    )
-  </script>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <div style="display: flex; align-items: center; justify-content: center; min-height: 100vh; background: linear-gradient(135deg, #2563eb, #7c3aed); color: white; font-family: system-ui, sans-serif;">
+        <div style="text-align: center;">
+          <div style="font-size: 1.25rem; animation: pulse 2s infinite;">Загрузка WASSER PRO...</div>
+        </div>
+      </div>
+    </div>
     <script src="main.js"></script>
   </body>
 </html>

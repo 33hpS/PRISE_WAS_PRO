@@ -1,5 +1,5 @@
 // scripts/build.mjs
-import { writeFileSync, mkdirSync, existsSync, copyFileSync, readFileSync } from 'fs'
+import { writeFileSync, mkdirSync, existsSync, readdirSync, statSync } from 'fs'
 import { resolve, dirname } from 'path'
 import { fileURLToPath } from 'url'
 
@@ -73,8 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
 `;
 
 // Используем содержимое shadcn.css с Tailwind CDN
-const shadcnCSS = `
-@import url('https://cdn.tailwindcss.com');
+const shadcnCSS = `@import url('https://cdn.tailwindcss.com');
 
 :root {
   --background: 0 0% 100%;
@@ -181,7 +180,6 @@ html > body * {
   scrollbar-color: hsl(var(--border)) transparent;
 }
 
-/* Дополнительные стили для анимации */
 @keyframes pulse {
   0%, 100% {
     opacity: 1;
@@ -193,8 +191,7 @@ html > body * {
 
 .animate-pulse {
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-`;
+}`;
 
 // Создаем простой index.html БЕЗ EventSource
 const simpleHTML = `<!DOCTYPE html>
@@ -228,7 +225,6 @@ try {
   console.log('✅ Created index.html')
   
   // Показываем содержимое dist для отладки
-  import { readdirSync, statSync } from 'fs'
   const files = readdirSync(distDir)
   console.log('\n📂 Files in dist:')
   files.forEach(file => {
